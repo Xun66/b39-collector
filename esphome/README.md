@@ -1,6 +1,23 @@
 # B39 空气质量检测仪 ESPHome 接入
 
-这个目录提供一份 ESPHome 示例配置，用 ESP32-S3 的 USB-OTG Host 功能直接读取正和清远 B39 空气质量检测仪的 USB-CDC 数据，并通过 Home Assistant 展示传感器实体。
+这是一份 ESPHome 配置，用 ESP32-S3 的 USB-OTG Host 功能直接读取正和清远 B39 空气质量检测仪的 USB-CDC 数据，并接入 Home Assistant 生成传感器实体。
+
+<table align="center">
+<tr align="center">
+<td align="center" valign="top">
+<p align="center">
+  <img height="320" alt="设备连接现场照片" src="https://github.com/user-attachments/assets/46d3a241-6540-4592-9942-6df03163d007" />
+</p>
+</td>
+<td align="center" valign="top">
+<p align="center">
+  <img height="320" alt="HomeAssistant TVOC 历史记录截屏" src="https://github.com/user-attachments/assets/f4815a0a-dffe-42c0-b0cd-8f5eff3dd6b1" />
+</p>
+</td>
+</tr>
+</table>
+<div style="display: flex; gap: 15px;">
+</div>
 
 ## 硬件要求
 
@@ -45,7 +62,7 @@ api_encryption_key: "your-api-encryption-key"
 
 2. 将标有 COM 的 TypeC 口连接到电脑，将标有 USB 口的 TypeC 口连接空气质量检测仪。
 3. 在 ESPHome Builder 右下角选择“创建设备” -- “高级配置选项” -- “空配置”，粘贴 `configuration.yaml` 中的内容。
-4. **大多数情况下，YAML 无需修改即可工作。**后续可以根据实际购买的传感器组合，在 YAML 中将不用的传感器项目用 `#` 注释掉；也可以根据网络状况配置 `wifi.use_address` 或 `wifi.manual_ip`，以及**开启 API 加密（强烈建议）**。
+4. **大多数情况下，YAML 无需修改即可工作。** 后续可以根据实际购买的传感器组合，在 YAML 中将不用的传感器项目用 `#` 注释掉；也可以根据网络状况配置 `wifi.use_address` 或 `wifi.manual_ip`，以及**开启 API 加密（强烈建议）**。
 5. 保存文件，将开发版按住Boot再按下RST，并选择“安装（Install）” -- 选择“插入此电脑，或手动下载” -- 随后打开 [ESPHome Web](https://web.esphome.io/) 进行烧录即可，随后按ESPHome Web上的提示可以查看板子日志。一旦联网成功后，后续安装无需再使用 USB 连接设备，选择无线方式即可。
 6. 在 HA -- Settings -- 设备（Devices）中查看是否已经自动发现或添加了 `B39 Air Monitor xxxxxx`，若没有，请右下角添加 ESPHome -- 输入设备的IP地址，继续，如设置了加密Key输入加密Key -- 完成，可以看到传感器数据。
 
