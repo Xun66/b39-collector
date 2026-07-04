@@ -14,3 +14,5 @@
 接受数据并存储, 提供查询和展示功能, 详见 [server](server/)
 
 你也可以无需使用该服务端, 而是在客户端中配置数据上报的地址, 实现接入`Home Assistant`等其他平台。
+
+如果想要上报到`Home Assistant`, 可以自行修改客户端逻辑, 也可以直接使用 [ESPHome 方案](esphome/)。
